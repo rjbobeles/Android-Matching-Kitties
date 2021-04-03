@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="primary_button">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:fontFamily">@font/baloo_extrabold</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:padding">2dp</item>
+        <item name="android:shadowColor">#fff</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">32sp</item>
+        <item name="android:buttonCornerRadius">100dp</item>
+    </style>
+    <style name="square_button">
+        <item name="android:layout_height">70dp</item>
+        <item name="android:layout_width">70dp</item>
+        <item name="android:fontFamily">@font/baloo_extrabold</item>
+        <item name="android:letterSpacing">0</item>
+        <item name="android:padding">0dp</item>
+        <item name="android:shadowColor">#fff</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">32sp</item>
+        <item name="android:buttonCornerRadius">0dp</item>
+    </style>
+    <style name="heading_1">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/baloo_extrabold</item>
+        <item name="android:shadowColor">#57821764</item>
+        <item name="android:shadowDy">12</item>
+        <item name="android:shadowRadius">8</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">#fff</item>
+        <item name="android:textSize">64sp</item>
+        <item name="android:lineHeight">56sp</item>
+    </style>
+</resources>

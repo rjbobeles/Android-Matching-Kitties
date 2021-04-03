@@ -7,4 +7,26 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- RADIAL GRADIENT (BACKGROUNDS) -->
+    <color name="radial_peach_pink">#FF7676</color>
+    <color name="radial_peach_mid">#FF9077</color>
+    <color name="radial_peach_yellow">#FFBB78</color>
+
+    <color name="radial_grape_purple">#A557D2</color>
+    <color name="radial_grape_mid">#CF69B9</color>
+    <color name="radial_grape_pink">#EE77A7</color>
+
+    <!-- LINEAR GRADIENT -->
+    <color name="linear_powder_blue">#6DAFFE</color>
+    <color name="linear_powder_purple">#8268E5</color>
+
+    <color name="linear_sky_light">#57D9ED</color>
+    <color name="linear_sky_dark">#576FF6</color>
+
+    <color name="linear_twilight_light">#E754B2</color>
+    <color name="linear_twilight_dark">#7645E3</color>
+
+    <color name="linear_peach_light">#FFB17F</color>
+    <color name="linear_peach_dark">#FF4487</color>
 </resources>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape>
+            <gradient
+                android:centerX="50%"
+                android:centerY="50%"
+                android:endColor="@color/radial_peach_pink"
+                android:centerColor="@color/radial_peach_mid"
+                android:startColor="@color/radial_peach_yellow"
+                android:type="radial"
+                android:gradientRadius="100%"/>
+        </shape>
+    </item>
+</selector>
