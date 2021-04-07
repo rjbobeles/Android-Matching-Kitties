@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MatchingKitties">
-        <activity android:name=".LevelSelectionActivity"></activity>
+        <activity android:name=".AuthorsActivity" />
+        <activity android:name=".LevelSelectionActivity" />
         <activity android:name=".MenuActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
