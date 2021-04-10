@@ -9,15 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MatchingKitties">
-        <activity android:name=".AuthorsActivity" />
-        <activity android:name=".LevelSelectionActivity" />
-        <activity android:name=".MenuActivity">
+        <activity android:name=".SplashScreen" android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".AuthorsActivity" />
+        <activity android:name=".LevelSelectionActivity" />
+        <activity android:name=".MenuActivity" />
     </application>
 
 </manifest>
