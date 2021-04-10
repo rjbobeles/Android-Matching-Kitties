@@ -20,6 +20,7 @@
                 android:endColor="@color/linear_sky_dark"
                 android:startColor="@color/linear_sky_light"
                 android:type="linear"
+                android:angle="270"
                 />
             <corners
                 android:radius="100dp" />

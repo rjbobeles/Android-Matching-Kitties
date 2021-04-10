@@ -20,6 +20,7 @@
         app:srcCompat="@drawable/about" />
 
     <LinearLayout
+        android:layout_marginBottom="56dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -34,31 +35,35 @@
             android:layout_width="280dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="0dp"
             android:gravity="center"
-            android:text="@string/app_name" />
+            android:textSize="48dp"
+            android:lineHeight="40dp"
+            android:text="Matching Kitties" />
 
         <Button
             android:id="@+id/btn_casual"
             style="@style/primary_button"
             android:layout_width="match_parent"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="8dp"
             android:background="@drawable/button_gradient_sky"
-            android:text="@string/casual" />
+            android:text="Casual"
+            app:backgroundTintMode="add" />
 
         <Button
             android:id="@+id/btn_mania"
             style="@style/primary_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="36dp"
+            android:layout_marginBottom="16dp"
             android:background="@drawable/button_gradient_twilight"
-            android:text="@string/mania" />
+            android:text="Mania"
+            app:backgroundTint="@null" />
 
         <ImageButton
             android:id="@+id/btn_leaderboards"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:layout_gravity="center"
             android:background="@null"
             android:scaleType="fitCenter"

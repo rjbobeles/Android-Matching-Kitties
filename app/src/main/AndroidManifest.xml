@@ -18,7 +18,7 @@
         </activity>
         <activity android:name=".AuthorsActivity" />
         <activity android:name=".LevelSelectionActivity" />
-        <activity android:name=".MenuActivity" />
+        <activity android:name=".MenuActivity" android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
     </application>
 
 </manifest>
