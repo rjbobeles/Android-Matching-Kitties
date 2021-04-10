@@ -10,7 +10,7 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="24dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/btn_close"
         app:layout_constraintEnd_toEndOf="parent"
@@ -39,8 +39,7 @@
                     android:id="@+id/btn_lvl1"
                     style="@style/square_button"
                     android:background="@drawable/button_gradient_peach"
-                    android:text="1"
-                    app:backgroundTint="@drawable/button_gradient_peach" />
+                    android:text="1" />
             </LinearLayout>
 
             <LinearLayout
@@ -54,8 +53,7 @@
                     android:id="@+id/btn_lvl2"
                     style="@style/square_button"
                     android:background="@drawable/button_gradient_peach"
-                    android:text="2"
-                    app:backgroundTint="@drawable/button_gradient_peach" />
+                    android:text="2" />
             </LinearLayout>
 
             <LinearLayout
@@ -69,8 +67,7 @@
                     android:id="@+id/btn_lvl3"
                     style="@style/square_button"
                     android:background="@drawable/button_gradient_peach"
-                    android:text="3"
-                    app:backgroundTint="@drawable/button_gradient_peach" />
+                    android:text="3" />
             </LinearLayout>
 
         </LinearLayout>
@@ -78,9 +75,9 @@
 
     <ImageButton
         android:id="@+id/btn_close"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:layout_marginBottom="96dp"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="24dp"
         android:background="@null"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
