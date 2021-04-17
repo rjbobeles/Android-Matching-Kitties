@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageButton
+        android:id="@+id/ImageButtonlvl2D"
+        android:layout_width="162dp"
+        android:layout_height="174dp"
+        android:layout_marginEnd="179dp"
+        android:layout_marginRight="179dp"
+        android:layout_marginBottom="28dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/kitty_00" />
+
+    <ImageButton
+        android:id="@+id/ImageButtonlvl2A"
+        android:layout_width="159dp"
+        android:layout_height="184dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="9dp"
+        app:layout_constraintBottom_toTopOf="@+id/ImageButtonlvl2C"
+        app:layout_constraintEnd_toStartOf="@+id/ImageButtonlvl2B"
+        app:layout_constraintHorizontal_bias="0.619"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/kitty_00" />
+
+    <ImageButton
+        android:id="@+id/ImageButtonlvl2C"
+        android:layout_width="160dp"
+        android:layout_height="178dp"
+        android:layout_marginStart="143dp"
+        android:layout_marginLeft="143dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ImageButtonlvl2A"
+        app:srcCompat="@drawable/kitty_00" />
+
+    <ImageButton
+        android:id="@+id/ImageButtonlvl2B"
+        android:layout_width="168dp"
+        android:layout_height="174dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="173dp"
+        android:layout_marginRight="173dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/kitty_00" />
+</androidx.constraintlayout.widget.ConstraintLayout>
