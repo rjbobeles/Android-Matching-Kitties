@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <ImageButton
-        android:id="@+id/imageButton1"
+        android:id="@+id/imgButton0"
         android:layout_width="170dp"
         android:layout_height="166dp"
         android:layout_marginStart="16dp"
@@ -18,18 +18,18 @@
         app:srcCompat="@drawable/kitty_00" />
 
     <ImageButton
-        android:id="@+id/imageButton2"
+        android:id="@+id/imgButton2"
         android:layout_width="171dp"
         android:layout_height="174dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton3"
+        app:layout_constraintEnd_toStartOf="@+id/imgButton4"
         app:layout_constraintHorizontal_bias="0.473"
-        app:layout_constraintStart_toEndOf="@+id/imageButton1"
+        app:layout_constraintStart_toEndOf="@+id/imgButton0"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/kitty_00" />
 
     <ImageButton
-        android:id="@+id/imageButton3"
+        android:id="@+id/imgButton4"
         android:layout_width="173dp"
         android:layout_height="182dp"
         android:layout_marginEnd="28dp"
