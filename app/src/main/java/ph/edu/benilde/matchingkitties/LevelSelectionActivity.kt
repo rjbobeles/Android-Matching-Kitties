@@ -44,7 +44,7 @@ class LevelSelectionActivity: AppCompatActivity() {
         }
 
         btnLvl3.setOnClickListener {
-            val intent = Intent(this, Level2Activity::class.java)
+            val intent = Intent(this, Level3Activity::class.java)
             intent.putExtra("GVM-mode", 1)
             intent.putExtra("GVM-size", 3)
             startActivityForResult(intent, 1)
