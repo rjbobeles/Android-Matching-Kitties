@@ -1,85 +1,135 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/heading_1"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient_grape">
 
-    <ImageButton
-        android:id="@+id/imageButton3A"
-        android:layout_width="169dp"
-        android:layout_height="166dp"
-        android:layout_marginStart="27dp"
-        android:layout_marginLeft="27dp"
-        android:layout_marginTop="118dp"
-        android:layout_marginEnd="38dp"
-        android:layout_marginRight="38dp"
-        android:layout_marginBottom="49dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton3D"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton3B"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/kitty_00" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
 
-    <ImageButton
-        android:id="@+id/imageButton3B"
-        android:layout_width="160dp"
-        android:layout_height="165dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="118dp"
-        android:layout_marginEnd="17dp"
-        android:layout_marginRight="17dp"
-        android:layout_marginBottom="56dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton3E"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageButton3A"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/kitty_00" />
+        <TextView
+            android:id="@+id/Title"
+            style="@style/heading_3"
+            android:text="Match 'em \nkitties!" />
 
-    <ImageButton
-        android:id="@+id/imageButton3D"
-        android:layout_width="173dp"
-        android:layout_height="185dp"
-        android:layout_marginStart="27dp"
-        android:layout_marginLeft="27dp"
-        android:layout_marginEnd="38dp"
-        android:layout_marginRight="38dp"
-        android:layout_marginBottom="23dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageButton3C"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton3E"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton3A"
-        app:srcCompat="@drawable/kitty_00" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <ImageButton
-        android:id="@+id/imageButton3E"
-        android:layout_width="156dp"
-        android:layout_height="176dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="56dp"
-        android:layout_marginEnd="17dp"
-        android:layout_marginRight="17dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageButton3D"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton3B"
-        app:srcCompat="@drawable/kitty_00" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
 
-    <ImageButton
-        android:id="@+id/imageButton3C"
-        android:layout_width="185dp"
-        android:layout_height="174dp"
-        android:layout_marginStart="111dp"
-        android:layout_marginLeft="111dp"
-        android:layout_marginEnd="115dp"
-        android:layout_marginRight="115dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageButton3D"
-        app:layout_constraintVertical_bias="0.589"
-        app:srcCompat="@drawable/kitty_00" />
+                <ImageButton
+                    android:id="@+id/imgButton3A"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:background="@drawable/kitty_00" />
+
+                <ImageButton
+                    android:id="@+id/imgButton3B"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:background="@drawable/kitty_00" />
+
+                <ImageButton
+                    android:id="@+id/imgButton3C"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:background="@drawable/kitty_00" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/imgButton3D"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:background="@drawable/kitty_00" />
+
+                <ImageButton
+                    android:id="@+id/imgButton3E"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:background="@drawable/kitty_00" />
+
+                <ImageButton
+                    android:id="@+id/imgButton3F"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:background="@drawable/kitty_00" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/imgButton3G"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:background="@drawable/kitty_00" />
+
+                <ImageButton
+                    android:id="@+id/imgButton3H"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:background="@drawable/kitty_00" />
+
+                <ImageButton
+                    android:id="@+id/imgButton3I"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:background="@drawable/kitty_00" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/imgButton3J"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:background="@drawable/kitty_00" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txtCountDown"
+            style="@style/heading_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="0:00" />
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

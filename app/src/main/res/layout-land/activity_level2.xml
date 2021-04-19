@@ -1,56 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/heading_1"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient_sky">
 
-    <ImageButton
-        android:id="@+id/ImageButtonlvl2D"
-        android:layout_width="162dp"
-        android:layout_height="174dp"
-        android:layout_marginEnd="179dp"
-        android:layout_marginRight="179dp"
-        android:layout_marginBottom="28dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/kitty_00" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
 
-    <ImageButton
-        android:id="@+id/ImageButtonlvl2A"
-        android:layout_width="159dp"
-        android:layout_height="184dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginBottom="9dp"
-        app:layout_constraintBottom_toTopOf="@+id/ImageButtonlvl2C"
-        app:layout_constraintEnd_toStartOf="@+id/ImageButtonlvl2B"
-        app:layout_constraintHorizontal_bias="0.619"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/kitty_00" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:gravity="bottom"
+            android:orientation="horizontal"
+            android:paddingLeft="64dp"
+            android:paddingRight="64dp">
 
-    <ImageButton
-        android:id="@+id/ImageButtonlvl2C"
-        android:layout_width="160dp"
-        android:layout_height="178dp"
-        android:layout_marginStart="143dp"
-        android:layout_marginLeft="143dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ImageButtonlvl2A"
-        app:srcCompat="@drawable/kitty_00" />
+            <TextView
+                android:id="@+id/Title"
+                style="@style/heading_3"
+                android:layout_width="wrap_content"
+                android:gravity="start"
+                android:text="Match 'em \nkitties!"
+                android:textAlignment="textStart" />
 
-    <ImageButton
-        android:id="@+id/ImageButtonlvl2B"
-        android:layout_width="168dp"
-        android:layout_height="174dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="173dp"
-        android:layout_marginRight="173dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/kitty_00" />
+            <TextView
+                android:id="@+id/txtCountDown"
+                style="@style/heading_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:text="0:00"
+                android:textAlignment="textEnd" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/imgButton2A"
+                    android:layout_width="140dp"
+                    android:layout_height="140dp"
+                    android:background="@drawable/kitty_00"
+                    android:scaleType="fitStart" />
+
+                <ImageButton
+                    android:id="@+id/imgButton2B"
+                    android:layout_width="140dp"
+                    android:layout_height="140dp"
+                    android:background="@drawable/kitty_00"
+                    android:scaleType="fitStart" />
+
+                <ImageButton
+                    android:id="@+id/imgButton2C"
+                    android:layout_width="140dp"
+                    android:layout_height="140dp"
+                    android:background="@drawable/kitty_00"
+                    android:scaleType="fitStart" />
+
+                <ImageButton
+                    android:id="@+id/imgButton2D"
+                    android:layout_width="140dp"
+                    android:layout_height="140dp"
+                    android:background="@drawable/kitty_00"
+                    android:scaleType="fitStart" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/imgButton2E"
+                    android:layout_width="140dp"
+                    android:layout_height="140dp"
+                    android:background="@drawable/kitty_00"
+                    android:scaleType="fitStart" />
+
+                <ImageButton
+                    android:id="@+id/imgButton2F"
+                    android:layout_width="140dp"
+                    android:layout_height="140dp"
+                    android:background="@drawable/kitty_00"
+                    android:scaleType="fitStart" />
+
+                <ImageButton
+                    android:id="@+id/imgButton2G"
+                    android:layout_width="140dp"
+                    android:layout_height="140dp"
+                    android:background="@drawable/kitty_00"
+                    android:scaleType="fitStart" />
+
+                <ImageButton
+                    android:id="@+id/imgButton2H"
+                    android:layout_width="140dp"
+                    android:layout_height="140dp"
+                    android:background="@drawable/kitty_00"
+                    android:scaleType="fitStart" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+

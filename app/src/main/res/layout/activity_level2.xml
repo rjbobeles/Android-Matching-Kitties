@@ -1,52 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/heading_1"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_gradient_sky">
 
-    <ImageButton
-        android:id="@+id/ImageButtonlvl2D"
-        android:layout_width="171dp"
-        android:layout_height="180dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/ImageButtonlvl2C"
-        app:layout_constraintTop_toBottomOf="@+id/ImageButtonlvl2B"
-        app:srcCompat="@drawable/kitty_00" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
 
-    <ImageButton
-        android:id="@+id/ImageButtonlvl2A"
-        android:layout_width="165dp"
-        android:layout_height="204dp"
-        android:layout_marginTop="176dp"
-        app:layout_constraintEnd_toStartOf="@+id/ImageButtonlvl2B"
-        app:layout_constraintHorizontal_bias="0.38"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/kitty_00" />
+        <TextView
+            android:id="@+id/Title"
+            style="@style/heading_3"
+            android:text="Match 'em \nkitties!" />
 
-    <ImageButton
-        android:id="@+id/ImageButtonlvl2C"
-        android:layout_width="164dp"
-        android:layout_height="183dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ImageButtonlvl2A"
-        app:layout_constraintVertical_bias="0.404"
-        app:srcCompat="@drawable/kitty_00" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <ImageButton
-        android:id="@+id/ImageButtonlvl2B"
-        android:layout_width="172dp"
-        android:layout_height="196dp"
-        android:layout_marginTop="176dp"
-        android:layout_marginEnd="28dp"
-        android:layout_marginRight="28dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/kitty_00" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/imgButton2A"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:background="@drawable/kitty_00" />
+
+                <ImageButton
+                    android:id="@+id/imgButton2B"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:background="@drawable/kitty_00" />
+
+                <ImageButton
+                    android:id="@+id/imgButton2C"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:background="@drawable/kitty_00" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/imgButton2D"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:background="@drawable/kitty_00" />
+
+                <ImageButton
+                    android:id="@+id/imgButton2E"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:background="@drawable/kitty_00" />
+
+                <ImageButton
+                    android:id="@+id/imgButton2F"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:background="@drawable/kitty_00" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/imgButton2G"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:background="@drawable/kitty_00" />
+
+                <ImageButton
+                    android:id="@+id/imgButton2H"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:background="@drawable/kitty_00" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txtCountDown"
+            style="@style/heading_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="0:00" />
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
