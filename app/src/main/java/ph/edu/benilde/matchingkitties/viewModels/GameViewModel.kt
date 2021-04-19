@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import ph.edu.benilde.matchingkitties.R
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 
 class GameViewModel: ViewModel() {
     private val _inGame = MutableLiveData<Boolean>(false)
@@ -56,7 +57,6 @@ class GameViewModel: ViewModel() {
 
     fun setGameSize(size: GameSize) {
         if(_inGame.value!! || _gameStarted.value!!) return
-        if(_gameMode.value!! != GameModes.MODE_ARCADE) return
         _gameSize.value = size
     }
 
@@ -67,16 +67,11 @@ class GameViewModel: ViewModel() {
     }
 
     fun startGame() {
+        Log.i("GAME2", gameSize.value.toString())
+
         if(_gameMode.value!! == GameModes.MODE_NONE) return
-        _isDone.value = false
-
-        if(_gameMode.value!! == GameModes.MODE_ARCADE) {
-            if(_gameSize.value!! == GameSize.SIZE_0) return
-            generateLevel()
-        }
-
-        if(_gameMode!!.equals(GameModes.MODE_MANIA)) { generateLevel() }
-
+        if(_gameSize.value!! == GameSize.SIZE_0) return
+        generateLevel()
         _inGame.value = true
     }
 
@@ -138,7 +133,7 @@ class GameViewModel: ViewModel() {
         }
 
         if(_gameImages.value!!.isNotEmpty() && _openedImages.value!! == _gameImages.value!!.size) {
-            if(_gameMode.value!! == GameModes.MODE_ARCADE) {
+            if(_gameMode.value!! == GameModes.MODE_MANIA) {
                 val levelWeight = when(_gameSize.value!!) {
                     GameSize.SIZE_1 -> 3
                     GameSize.SIZE_2 -> 4
@@ -147,7 +142,7 @@ class GameViewModel: ViewModel() {
                 }
 
                 _score.value = _score.value!! + levelWeight
-                _timeLeft.value = _score.value!! + 5
+                _timeLeft.value = _timeLeft.value!! + 5
             }
 
             _isDone.value = true

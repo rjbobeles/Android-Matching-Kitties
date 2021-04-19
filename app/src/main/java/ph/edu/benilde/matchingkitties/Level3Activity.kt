@@ -41,33 +41,33 @@ class Level3Activity: AppCompatActivity(){
 
         val gameModel by viewModels<GameViewModel>()
         val gvmMode = intent.getIntExtra("GVM-mode", 0)
-        val gvmModeUnit = when (gvmMode) {
+        val gvmModeUnit = when(gvmMode) {
             1 -> GameModes.MODE_ARCADE
             2 -> GameModes.MODE_MANIA
             else -> GameModes.MODE_NONE
         }
 
         val gvmSize = intent.getIntExtra("GVM-size", 0)
-        val gameSizeUnit = when (gvmSize) {
+        val gvmSizeUnit = when(gvmSize) {
             1 -> GameSize.SIZE_1
             2 -> GameSize.SIZE_2
             3 -> GameSize.SIZE_3
             else -> GameSize.SIZE_0
         }
+
         val userScore = intent.getIntExtra("GVM-User-Score", 0)
         val userTimeLeft = intent.getIntExtra("GVM-User-Time", 20)
 
-        if (gvmModeUnit != GameModes.MODE_MANIA) {txtCountdown.visibility = GONE }
+        if(gvmModeUnit != GameModes.MODE_MANIA) { txtCountdown.visibility = GONE }
         gameModel.setGameMode(gvmModeUnit)
-        gameModel.setGameSize(gameSizeUnit)
-        gameModel.setGameSize(gameSizeUnit)
+        gameModel.setGameSize(gvmSizeUnit)
         gameModel.setUserData(userScore, userTimeLeft)
         gameModel.startGame()
 
-        for (i in imgButtons.indices) { imgButtons[i].setOnClickListener { gameModel.checkOrSelect(i) } }
+        for(i in imgButtons.indices) { imgButtons[i].setOnClickListener { gameModel.checkOrSelect(i) } }
         gameModel.gameRoundImageStatus.observe(this) { refreshGrid() }
         gameModel.isDone.observe(this) {
-            if (it == true) {
+            if(it == true) {
                 if (gvmModeUnit == GameModes.MODE_ARCADE) {
                     val intent = Intent(this, ArcadeResultActivity::class.java)
                     intent.putExtra("GVM-mode", gvmMode)
@@ -78,12 +78,13 @@ class Level3Activity: AppCompatActivity(){
 
                 if (gvmModeUnit == GameModes.MODE_MANIA) {
                     val level = Random.nextInt(1, 3)
-                    val levelClass = when (level) {
+                    val levelClass = when(level) {
                         1 -> Level1Activity::class.java
                         2 -> Level2Activity::class.java
                         3 -> Level3Activity::class.java
                         else -> null
                     }
+
                     val intent = Intent(this, levelClass)
                     intent.putExtra("GVM-mode", gvmMode)
                     intent.putExtra("GVM-size", level)

@@ -43,19 +43,19 @@ class Level1Activity: AppCompatActivity(){
         }
 
         val gvmSize = intent.getIntExtra("GVM-size", 0)
-        val gameSizeUnit = when(gvmSize) {
+        val gvmSizeUnit = when(gvmSize) {
             1 -> GameSize.SIZE_1
             2 -> GameSize.SIZE_2
             3 -> GameSize.SIZE_3
             else -> GameSize.SIZE_0
         }
-
+        Log.i("GAME", gvmSizeUnit.toString())
         val userScore = intent.getIntExtra("GVM-User-Score", 0)
         val userTimeLeft = intent.getIntExtra("GVM-User-Time", 20)
 
         if(gvmModeUnit != GameModes.MODE_MANIA) { txtCountdown.visibility = GONE }
         gameModel.setGameMode(gvmModeUnit)
-        gameModel.setGameSize(gameSizeUnit)
+        gameModel.setGameSize(gvmSizeUnit)
         gameModel.setUserData(userScore, userTimeLeft)
         gameModel.startGame()
 
