@@ -1,5 +1,6 @@
 package ph.edu.benilde.matchingkitties
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
@@ -31,16 +32,19 @@ class LevelSelectionActivity: AppCompatActivity() {
         btnLvl1.setOnClickListener {
             gameModel.setMode(GameModes.MODE_ARCADE)
             gameModel.setGameSize(GameSize.SIZE_1)
+            startActivity(Intent(this, Level1Activity::class.java))
         }
 
         btnLvl2.setOnClickListener {
             gameModel.setMode(GameModes.MODE_ARCADE)
             gameModel.setGameSize(GameSize.SIZE_2)
+            startActivity(Intent(this, Level2Activity::class.java))
         }
 
         btnLvl3.setOnClickListener {
             gameModel.setMode(GameModes.MODE_ARCADE)
             gameModel.setGameSize(GameSize.SIZE_3)
+            startActivity(Intent(this, Level3Activity::class.java))
         }
 
         btnClose.setOnClickListener{
