@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="56dp"
         android:fontFamily="@font/baloo_extrabold"
-        android:text="Unikitty Studios"
+        android:text="@string/app_authors"
         android:textColor="#d4d4d4"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"

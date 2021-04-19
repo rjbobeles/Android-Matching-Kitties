@@ -17,6 +17,10 @@
     <color name="radial_grape_mid">#CF69B9</color>
     <color name="radial_grape_pink">#EE77A7</color>
 
+    <color name="radial_candy_blue">#63A1FF</color>
+    <color name="radial_candy_mid">#6ECFEF</color>
+    <color name="radial_candy_sky">#79FFDF</color>
+
     <!-- LINEAR GRADIENT -->
     <color name="linear_powder_blue">#6DAFFE</color>
     <color name="linear_powder_purple">#8268E5</color>
