@@ -5,8 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
 import ph.edu.benilde.matchingkitties.databinding.ActivityLevelSelectionBinding
-import ph.edu.benilde.matchingkitties.viewModels.GameModes
-import ph.edu.benilde.matchingkitties.viewModels.GameSize
 import ph.edu.benilde.matchingkitties.viewModels.GameViewModel
 
 class LevelSelectionActivity: AppCompatActivity() {

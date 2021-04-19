@@ -10,17 +10,18 @@ import ph.edu.benilde.matchingkitties.databinding.ActivityLevel1Binding
 import ph.edu.benilde.matchingkitties.viewModels.GameModes
 import ph.edu.benilde.matchingkitties.viewModels.GameSize
 import ph.edu.benilde.matchingkitties.viewModels.GameViewModel
+import kotlin.random.Random
 
 class Level1Activity: AppCompatActivity(){
     private lateinit var binding: ActivityLevel1Binding
     private val imgButtons by lazy { listOf(
-            binding.imgButton0,
-            binding.imgButton1,
-            binding.imgButton2,
-            binding.imgButton3,
-            binding.imgButton4,
-            binding.imgButton5
-    )
+            binding.imgButton1A,
+            binding.imgButton1B,
+            binding.imgButton1C,
+            binding.imgButton1D,
+            binding.imgButton1E,
+            binding.imgButton1F
+        )
     }
     private val txtCountdown by lazy { binding.txtCountDown }
 
@@ -49,10 +50,13 @@ class Level1Activity: AppCompatActivity(){
             else -> GameSize.SIZE_0
         }
 
+        val userScore = intent.getIntExtra("GVM-User-Score", 0)
+        val userTimeLeft = intent.getIntExtra("GVM-User-Time", 20)
+
         if(gvmModeUnit != GameModes.MODE_MANIA) { txtCountdown.visibility = GONE }
-        Log.i("GAME", gameModel.gameMode.value!!.toString())
         gameModel.setGameMode(gvmModeUnit)
         gameModel.setGameSize(gameSizeUnit)
+        gameModel.setUserData(userScore, userTimeLeft)
         gameModel.startGame()
 
         for(i in imgButtons.indices) { imgButtons[i].setOnClickListener { gameModel.checkOrSelect(i) } }
@@ -68,7 +72,21 @@ class Level1Activity: AppCompatActivity(){
                 }
 
                 if (gvmModeUnit == GameModes.MODE_MANIA) {
+                    val level = Random.nextInt(1, 3)
+                    val levelClass = when(level) {
+                        1 -> Level1Activity::class.java
+                        2 -> Level2Activity::class.java
+                        3 -> Level3Activity::class.java
+                        else -> null
+                    }
 
+                    val intent = Intent(this, levelClass)
+                    intent.putExtra("GVM-mode", gvmMode)
+                    intent.putExtra("GVM-size", level)
+                    intent.putExtra("GVM-User-Score", gameModel.score.value)
+                    intent.putExtra("GVM-User-Time", gameModel.timeLeft.value)
+                    startActivityForResult(intent, 1)
+                    finish()
                 }
             }
         }

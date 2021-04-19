@@ -31,32 +31,13 @@
                 android:orientation="horizontal">
 
                 <ImageButton
-                    android:id="@+id/imgButton0"
+                    android:id="@+id/imgButton1A"
                     android:layout_width="163dp"
                     android:layout_height="163dp"
                     android:background="@drawable/kitty_00" />
 
                 <ImageButton
-                    android:id="@+id/imgButton1"
-                    android:layout_width="163dp"
-                    android:layout_height="163dp"
-                    android:background="@drawable/kitty_00" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="horizontal">
-
-                <ImageButton
-                    android:id="@+id/imgButton2"
-                    android:layout_width="163dp"
-                    android:layout_height="163dp"
-                    android:background="@drawable/kitty_00" />
-
-                <ImageButton
-                    android:id="@+id/imgButton3"
+                    android:id="@+id/imgButton1B"
                     android:layout_width="163dp"
                     android:layout_height="163dp"
                     android:background="@drawable/kitty_00" />
@@ -69,13 +50,32 @@
                 android:orientation="horizontal">
 
                 <ImageButton
-                    android:id="@+id/imgButton4"
+                    android:id="@+id/imgButton1C"
                     android:layout_width="163dp"
                     android:layout_height="163dp"
                     android:background="@drawable/kitty_00" />
 
                 <ImageButton
-                    android:id="@+id/imgButton5"
+                    android:id="@+id/imgButton1D"
+                    android:layout_width="163dp"
+                    android:layout_height="163dp"
+                    android:background="@drawable/kitty_00" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/imgButton1E"
+                    android:layout_width="163dp"
+                    android:layout_height="163dp"
+                    android:background="@drawable/kitty_00" />
+
+                <ImageButton
+                    android:id="@+id/imgButton1F"
                     android:layout_width="163dp"
                     android:layout_height="163dp"
                     android:background="@drawable/kitty_00" />

@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModel
 import ph.edu.benilde.matchingkitties.R
 import android.os.Handler
 import android.os.Looper
-import kotlin.random.Random
 
 class GameViewModel: ViewModel() {
     private val _inGame = MutableLiveData<Boolean>(false)
@@ -59,6 +58,12 @@ class GameViewModel: ViewModel() {
         if(_inGame.value!! || _gameStarted.value!!) return
         if(_gameMode.value!! != GameModes.MODE_ARCADE) return
         _gameSize.value = size
+    }
+
+    fun setUserData(score: Int, time: Int) {
+        if(_gameMode.value!! != GameModes.MODE_MANIA) return
+        _score.value = score
+        _timeLeft.value = time
     }
 
     fun startGame() {
@@ -120,10 +125,6 @@ class GameViewModel: ViewModel() {
 
                 _hasSelectedSlot1.value = -1
                 _hasSelectedSlot2.value = -1
-
-                if(_gameMode.value!! == GameModes.MODE_MANIA) {
-                    // Todo: add Points, Time
-                }
             } else {
                 Handler(Looper.getMainLooper()).postDelayed({
                     gameRIS[_hasSelectedSlot1.value!!] = false
@@ -138,29 +139,24 @@ class GameViewModel: ViewModel() {
 
         if(_gameImages.value!!.isNotEmpty() && _openedImages.value!! == _gameImages.value!!.size) {
             if(_gameMode.value!! == GameModes.MODE_ARCADE) {
-                _isDone.value = true
-                _inGame.value = false
-                _gameStarted.value = false
-                return
+                val levelWeight = when(_gameSize.value!!) {
+                    GameSize.SIZE_1 -> 3
+                    GameSize.SIZE_2 -> 4
+                    GameSize.SIZE_3 -> 5
+                    else -> 0
+                }
+
+                _score.value = _score.value!! + levelWeight
+                _timeLeft.value = _score.value!! + 5
             }
 
-            // Todo: Add Mania
+            _isDone.value = true
+            _inGame.value = false
+            _gameStarted.value = false
         }
     }
 
-
-
     private fun generateLevel() {
-        if(_gameMode.value!! == GameModes.MODE_MANIA) {
-            val r = Random.nextInt(3, 5)
-            _gameSize.value = when(r) {
-                3 -> GameSize.SIZE_1
-                4 -> GameSize.SIZE_2
-                5 -> GameSize.SIZE_3
-                else -> GameSize.SIZE_0
-            }
-        }
-
         val uniqueItems = when(_gameSize.value!!) {
             GameSize.SIZE_1 -> 3
             GameSize.SIZE_2 -> 4
