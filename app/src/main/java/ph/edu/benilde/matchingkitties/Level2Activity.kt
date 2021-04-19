@@ -12,7 +12,7 @@ class Level2Activity: AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
         binding = ActivityLevel2Binding.inflate(layoutInflater)
-        setContentView(R.layout.activity_level2)
+        setContentView(binding.root)
 
         if (supportActionBar != null) {
             this.supportActionBar?.hide();

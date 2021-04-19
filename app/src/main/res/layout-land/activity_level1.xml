@@ -25,7 +25,6 @@
             <TextView
                 android:id="@+id/Title"
                 style="@style/heading_3"
-
                 android:layout_width="wrap_content"
                 android:text="Match 'em \nkitties!"
                 android:textAlignment="textStart" />
@@ -54,25 +53,22 @@
                     android:id="@+id/imgButton0"
                     android:layout_width="140dp"
                     android:layout_height="140dp"
-                    android:background="@null"
                     android:scaleType="fitStart"
-                    app:srcCompat="@drawable/kitty_00" />
+                    android:background="@drawable/kitty_00" />
 
                 <ImageButton
                     android:id="@+id/imgButton1"
                     android:layout_width="140dp"
                     android:layout_height="140dp"
-                    android:background="@null"
                     android:scaleType="fitStart"
-                    app:srcCompat="@drawable/kitty_00" />
+                    android:background="@drawable/kitty_00" />
 
                 <ImageButton
                     android:id="@+id/imgButton2"
                     android:layout_width="140dp"
                     android:layout_height="140dp"
-                    android:background="@null"
                     android:scaleType="fitStart"
-                    app:srcCompat="@drawable/kitty_00" />
+                    android:background="@drawable/kitty_00" />
             </LinearLayout>
 
             <LinearLayout
@@ -85,25 +81,22 @@
                     android:id="@+id/imgButton3"
                     android:layout_width="140dp"
                     android:layout_height="140dp"
-                    android:background="@null"
                     android:scaleType="fitStart"
-                    app:srcCompat="@drawable/kitty_00" />
+                    android:background="@drawable/kitty_00" />
 
                 <ImageButton
                     android:id="@+id/imgButton4"
                     android:layout_width="140dp"
                     android:layout_height="140dp"
-                    android:background="@null"
                     android:scaleType="fitStart"
-                    app:srcCompat="@drawable/kitty_00" />
+                    android:background="@drawable/kitty_00" />
 
                 <ImageButton
                     android:id="@+id/imgButton5"
                     android:layout_width="140dp"
                     android:layout_height="140dp"
-                    android:background="@null"
                     android:scaleType="fitStart"
-                    app:srcCompat="@drawable/kitty_00" />
+                    android:background="@drawable/kitty_00" />
             </LinearLayout>
 
         </LinearLayout>

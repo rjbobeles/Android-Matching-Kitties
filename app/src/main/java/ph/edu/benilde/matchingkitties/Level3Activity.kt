@@ -12,7 +12,7 @@ class Level3Activity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
         binding = ActivityLevel3Binding.inflate(layoutInflater)
-        setContentView(R.layout.activity_level3)
+        setContentView(binding.root)
 
         if (supportActionBar != null) {
             this.supportActionBar?.hide();

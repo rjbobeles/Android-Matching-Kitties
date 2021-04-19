@@ -38,13 +38,13 @@ class LevelSelectionActivity: AppCompatActivity() {
         btnLvl2.setOnClickListener {
             gameModel.setMode(GameModes.MODE_ARCADE)
             gameModel.setGameSize(GameSize.SIZE_2)
-            startActivity(Intent(this, Level2Activity::class.java))
+            startActivity(Intent(this, Level1Activity::class.java))
         }
 
         btnLvl3.setOnClickListener {
             gameModel.setMode(GameModes.MODE_ARCADE)
             gameModel.setGameSize(GameSize.SIZE_3)
-            startActivity(Intent(this, Level3Activity::class.java))
+            startActivity(Intent(this, Level1Activity::class.java))
         }
 
         btnClose.setOnClickListener{
