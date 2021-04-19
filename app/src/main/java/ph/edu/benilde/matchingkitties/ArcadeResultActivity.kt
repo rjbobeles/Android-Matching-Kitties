@@ -4,6 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import ph.edu.benilde.matchingkitties.databinding.ActivityArcadeResultBinding
+import ph.edu.benilde.matchingkitties.viewModels.GameModes
+import ph.edu.benilde.matchingkitties.viewModels.GameSize
 import kotlin.random.Random
 
 class ArcadeResultActivity : AppCompatActivity() {
@@ -21,18 +23,27 @@ class ArcadeResultActivity : AppCompatActivity() {
         val phrase = phrases[Random.nextInt(0, 2)]
         binding.txtMessage.text = phrase
 
-        /*
-        Get whatever level was played and play that again
-        btnPlayAgain.setOnClickListener {
-            val intent = Intent(this, ...)
-            startActivity(intent)
+        val gvmMode = intent.getIntExtra("GVM-mode", 0)
+        val gvmSize = intent.getIntExtra("GVM-size", 0)
+        val gvmLevel = when(gvmSize) {
+            1 -> Level1Activity::class.java
+            2 -> Level2Activity::class.java
+            3 -> Level3Activity::class.java
+            else -> null
         }
 
-         */
+        btnPlayAgain.setOnClickListener {
+            val intent = Intent(this, gvmLevel)
+            intent.putExtra("GVM-mode", gvmMode)
+            intent.putExtra("GVM-size", gvmSize)
+            startActivityForResult(intent, 1)
+            finish()
+        }
 
         btnMenu.setOnClickListener {
             val intent = Intent(this, MenuActivity::class.java)
             startActivity(intent)
+            finish()
         }
 
     }

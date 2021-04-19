@@ -4,8 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import ph.edu.benilde.matchingkitties.R
-import java.util.*
-import kotlin.concurrent.schedule
+import android.os.Handler
+import android.os.Looper
 import kotlin.random.Random
 
 class GameViewModel: ViewModel() {
@@ -20,16 +20,18 @@ class GameViewModel: ViewModel() {
     private val _gameRoundImageStatus = MutableLiveData<BooleanArray>()
     private val _openedImages = MutableLiveData<Int>(0)
 
-    private val _hasSelected = MutableLiveData<Int>(-1)
+    private val _hasSelectedSlot1 = MutableLiveData<Int>(-1)
+    private val _hasSelectedSlot2 = MutableLiveData<Int>(-1)
+
     private val _score = MutableLiveData<Int>(-1)
     private val _timeLeft = MutableLiveData<Int>(-1)
 
     private val imageArray = mutableListOf<Int>(
-        R.drawable.kitty_01, R.drawable.kitty_02, R.drawable.kitty_03,
-        R.drawable.kitty_04, R.drawable.kitty_05, R.drawable.kitty_06,
-        R.drawable.kitty_07, R.drawable.kitty_08, R.drawable.kitty_09,
-        R.drawable.kitty_10, R.drawable.kitty_11, R.drawable.kitty_12,
-        R.drawable.kitty_13, R.drawable.kitty_14, R.drawable.kitty_15
+            R.drawable.kitty_01, R.drawable.kitty_02, R.drawable.kitty_03,
+            R.drawable.kitty_04, R.drawable.kitty_05, R.drawable.kitty_06,
+            R.drawable.kitty_07, R.drawable.kitty_08, R.drawable.kitty_09,
+            R.drawable.kitty_10, R.drawable.kitty_11, R.drawable.kitty_12,
+            R.drawable.kitty_13, R.drawable.kitty_14, R.drawable.kitty_15
     )
 
     val inGame: LiveData<Boolean> = _inGame
@@ -48,7 +50,7 @@ class GameViewModel: ViewModel() {
 
     init { }
 
-    fun setMode(mode: GameModes) {
+    fun setGameMode(mode: GameModes) {
         if(_inGame.value!! || _gameStarted.value!!) return
         _gameMode.value = mode
     }
@@ -61,7 +63,6 @@ class GameViewModel: ViewModel() {
 
     fun startGame() {
         if(_gameMode.value!! == GameModes.MODE_NONE) return
-
         _isDone.value = false
 
         if(_gameMode.value!! == GameModes.MODE_ARCADE) {
@@ -86,45 +87,68 @@ class GameViewModel: ViewModel() {
         _gameRoundImageStatus.value = null
         _openedImages.value = 0
 
-        _hasSelected.value = -1
+        _hasSelectedSlot1.value = -1
+        _hasSelectedSlot2.value = -1
+
         _score.value = 0
         _timeLeft.value = 0
     }
 
     fun checkOrSelect(box: Int) {
-        if(_hasSelected.value == -1) {
-            _hasSelected.value = box
-            _gameRoundImageStatus.value!![box] = true
-            return
-        } else {
-            _gameRoundImageStatus.value!![box] = true
+        var gameRIS = _gameRoundImageStatus.value!!
 
-            if(_gameRoundImages.value!![_hasSelected.value!!] == _gameRoundImages.value!![box]) {
-                _hasSelected.value = -1
+        if(_hasSelectedSlot1.value != -1 && _hasSelectedSlot2.value != -1) return
+
+        if(_hasSelectedSlot1.value == -1) {
+            _hasSelectedSlot1.value = box
+            gameRIS[box] = true
+            _gameRoundImageStatus.value = gameRIS
+            return
+        }
+
+        if(_hasSelectedSlot2.value == -1) {
+            _hasSelectedSlot2.value = box
+            gameRIS[box] = true
+            _gameRoundImageStatus.value = gameRIS
+        }
+
+        if(_hasSelectedSlot1.value != -1 && _hasSelectedSlot2.value != -1) {
+            var gameRI = _gameRoundImages.value!!
+            if(gameRI[_hasSelectedSlot1.value!!] == gameRI[_hasSelectedSlot2.value!!]) {
+
                 _openedImages.value = _openedImages.value!! + 1
+
+                _hasSelectedSlot1.value = -1
+                _hasSelectedSlot2.value = -1
 
                 if(_gameMode.value!! == GameModes.MODE_MANIA) {
                     // Todo: add Points, Time
                 }
             } else {
-                Timer().schedule(1000) {
-                    _gameRoundImageStatus.value!![_hasSelected.value!!] = false
-                    _gameRoundImageStatus.value!![box] = false
+                Handler(Looper.getMainLooper()).postDelayed({
+                    gameRIS[_hasSelectedSlot1.value!!] = false
+                    gameRIS[_hasSelectedSlot2.value!!] = false
+                    _gameRoundImageStatus.value = gameRIS
 
-                    _hasSelected.value = -1
-                }
+                    _hasSelectedSlot1.value = -1
+                    _hasSelectedSlot2.value = -1
+                }, 500)
             }
         }
 
-        if(_openedImages.value!! == _gameImages.value!!.size) {
-            _isDone.value = true
-            _inGame.value = false
-
-            if(_gameMode.value!! != GameModes.MODE_MANIA) {
+        if(_gameImages.value!!.isNotEmpty() && _openedImages.value!! == _gameImages.value!!.size) {
+            if(_gameMode.value!! == GameModes.MODE_ARCADE) {
+                _isDone.value = true
+                _inGame.value = false
                 _gameStarted.value = false
+                return
             }
+
+            // Todo: Add Mania
         }
     }
+
+
 
     private fun generateLevel() {
         if(_gameMode.value!! == GameModes.MODE_MANIA) {

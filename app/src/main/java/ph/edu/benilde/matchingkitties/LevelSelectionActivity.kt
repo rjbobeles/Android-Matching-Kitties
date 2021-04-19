@@ -30,21 +30,24 @@ class LevelSelectionActivity: AppCompatActivity() {
         val gameModel by viewModels<GameViewModel>()
 
         btnLvl1.setOnClickListener {
-            gameModel.setMode(GameModes.MODE_ARCADE)
-            gameModel.setGameSize(GameSize.SIZE_1)
-            startActivity(Intent(this, Level1Activity::class.java))
+            val intent = Intent(this, Level1Activity::class.java)
+            intent.putExtra("GVM-mode", 1)
+            intent.putExtra("GVM-size", 1)
+            startActivityForResult(intent, 1)
         }
 
         btnLvl2.setOnClickListener {
-            gameModel.setMode(GameModes.MODE_ARCADE)
-            gameModel.setGameSize(GameSize.SIZE_2)
-            startActivity(Intent(this, Level1Activity::class.java))
+            val intent = Intent(this, Level2Activity::class.java)
+            intent.putExtra("GVM-mode", 1)
+            intent.putExtra("GVM-size", 2)
+            startActivityForResult(intent, 1)
         }
 
         btnLvl3.setOnClickListener {
-            gameModel.setMode(GameModes.MODE_ARCADE)
-            gameModel.setGameSize(GameSize.SIZE_3)
-            startActivity(Intent(this, Level1Activity::class.java))
+            val intent = Intent(this, Level2Activity::class.java)
+            intent.putExtra("GVM-mode", 1)
+            intent.putExtra("GVM-size", 3)
+            startActivityForResult(intent, 1)
         }
 
         btnClose.setOnClickListener{
