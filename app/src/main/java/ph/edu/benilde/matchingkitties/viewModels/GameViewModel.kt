@@ -4,31 +4,45 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import ph.edu.benilde.matchingkitties.R
+import java.util.*
+import kotlin.concurrent.schedule
 import kotlin.random.Random
 
 class GameViewModel: ViewModel() {
-    private var _inGame = MutableLiveData<Boolean>(false)
-    private var _isDone = MutableLiveData<Boolean>(false)
-    private var _gameStarted = MutableLiveData<Boolean>(false)
-    private var _gameMode = MutableLiveData<GameModes>(GameModes.MODE_NONE)
-    private var _gameSize = MutableLiveData<GameSize>(GameSize.SIZE_0)
+    private val _inGame = MutableLiveData<Boolean>(false)
+    private val _isDone = MutableLiveData<Boolean>(false)
+    private val _gameStarted = MutableLiveData<Boolean>(false)
+    private val _gameMode = MutableLiveData<GameModes>(GameModes.MODE_NONE)
+    private val _gameSize = MutableLiveData<GameSize>(GameSize.SIZE_0)
 
-    private var _gameImages = MutableLiveData<IntArray>()
-    private var _gameRoundImages = MutableLiveData<IntArray>()
-    private var _gameRoundImageStatus = MutableLiveData<BooleanArray>()
-    private var _openedImages = MutableLiveData<Int>(0)
+    private val _gameImages = MutableLiveData<IntArray>()
+    private val _gameRoundImages = MutableLiveData<IntArray>()
+    private val _gameRoundImageStatus = MutableLiveData<BooleanArray>()
+    private val _openedImages = MutableLiveData<Int>(0)
 
-    private var _hasSelected = MutableLiveData<Int>(-1)
-    private var _score = MutableLiveData<Int>(-1)
-    private var _timeLeft = MutableLiveData<Int>(-1)
+    private val _hasSelected = MutableLiveData<Int>(-1)
+    private val _score = MutableLiveData<Int>(-1)
+    private val _timeLeft = MutableLiveData<Int>(-1)
 
-    private var imageArray = mutableListOf<Int>(
+    private val imageArray = mutableListOf<Int>(
         R.drawable.kitty_01, R.drawable.kitty_02, R.drawable.kitty_03,
         R.drawable.kitty_04, R.drawable.kitty_05, R.drawable.kitty_06,
         R.drawable.kitty_07, R.drawable.kitty_08, R.drawable.kitty_09,
         R.drawable.kitty_10, R.drawable.kitty_11, R.drawable.kitty_12,
         R.drawable.kitty_13, R.drawable.kitty_14, R.drawable.kitty_15
     )
+
+    val inGame: LiveData<Boolean> = _inGame
+    val isDone: LiveData<Boolean> = _isDone
+    val gameStarted: LiveData<Boolean> = _gameStarted
+    val gameMode: LiveData<GameModes> = _gameMode
+    val gameSize: LiveData<GameSize> = _gameSize
+
+    val gameRoundImages: LiveData<IntArray> = _gameRoundImages
+    val gameRoundImageStatus: LiveData<BooleanArray> = _gameRoundImageStatus
+
+    val score: LiveData<Int> = _score
+    val timeLeft: LiveData<Int> = _timeLeft
 
     // Todo: TIMER FOR TIME LEFT
 
@@ -63,12 +77,18 @@ class GameViewModel: ViewModel() {
     fun stopGame() {
         _isDone.value = false
         _inGame.value = false
+        _gameStarted.value = false
         _gameMode.value = GameModes.MODE_NONE
         _gameSize.value = GameSize.SIZE_0
-        _gameStarted.value = false
+
+        _gameImages.value = null
+        _gameRoundImages.value = null
+        _gameRoundImageStatus.value = null
+        _openedImages.value = 0
+
+        _hasSelected.value = -1
         _score.value = 0
         _timeLeft.value = 0
-        // Todo: Clear Variables
     }
 
     fun checkOrSelect(box: Int) {
@@ -87,17 +107,22 @@ class GameViewModel: ViewModel() {
                     // Todo: add Points, Time
                 }
             } else {
-                _hasSelected.value = -1
-                _gameRoundImageStatus.value!![_hasSelected.value!!] = false
-                _gameRoundImageStatus.value!![box] = false
+                Timer().schedule(1000) {
+                    _gameRoundImageStatus.value!![_hasSelected.value!!] = false
+                    _gameRoundImageStatus.value!![box] = false
 
-                // Todo: Timeout to clear images
+                    _hasSelected.value = -1
+                }
             }
         }
 
         if(_openedImages.value!! == _gameImages.value!!.size) {
             _isDone.value = true
-            // Todo: Show Final score
+            _inGame.value = false
+
+            if(_gameMode.value!! != GameModes.MODE_MANIA) {
+                _gameStarted.value = false
+            }
         }
     }
 
