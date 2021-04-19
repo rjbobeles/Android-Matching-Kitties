@@ -5,8 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import ph.edu.benilde.matchingkitties.databinding.ActivityMenuBinding
 import android.os.Bundle
 
-class MenuActivity : AppCompatActivity() {
-
+class MenuActivity: AppCompatActivity() {
     private lateinit var binding: ActivityMenuBinding
 
     private val btnCasual by lazy { binding.btnCasual }
@@ -16,7 +15,6 @@ class MenuActivity : AppCompatActivity() {
         binding = ActivityMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //Remove title bar
         if (supportActionBar != null) {
             this.supportActionBar?.hide();
         }

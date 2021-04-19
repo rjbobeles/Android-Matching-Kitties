@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import ph.edu.benilde.matchingkitties.databinding.ActivityAuthorsBinding
 
-class AuthorsActivity : AppCompatActivity() {
+class AuthorsActivity: AppCompatActivity() {
 
     private lateinit var binding: ActivityAuthorsBinding
 
@@ -13,11 +13,8 @@ class AuthorsActivity : AppCompatActivity() {
         binding = ActivityAuthorsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //Remove title bar
         if (supportActionBar != null) {
             this.supportActionBar?.hide();
         }
-
-
     }
 }

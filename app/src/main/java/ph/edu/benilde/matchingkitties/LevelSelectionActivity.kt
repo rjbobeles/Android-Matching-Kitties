@@ -2,22 +2,45 @@ package ph.edu.benilde.matchingkitties
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.activity.viewModels
 import ph.edu.benilde.matchingkitties.databinding.ActivityLevelSelectionBinding
+import ph.edu.benilde.matchingkitties.viewModels.GameModes
+import ph.edu.benilde.matchingkitties.viewModels.GameSize
+import ph.edu.benilde.matchingkitties.viewModels.GameViewModel
 
-class LevelSelectionActivity : AppCompatActivity() {
+class LevelSelectionActivity: AppCompatActivity() {
 
     private lateinit var binding: ActivityLevelSelectionBinding
 
     private val btnClose by lazy { binding.btnClose }
+    private val btnLvl1 by lazy { binding.btnLvl1 }
+    private val btnLvl2 by lazy { binding.btnLvl2 }
+    private val btnLvl3 by lazy { binding.btnLvl3 }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLevelSelectionBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //Remove title bar
         if (supportActionBar != null) {
             this.supportActionBar?.hide();
+        }
+
+        val gameModel by viewModels<GameViewModel>()
+
+        btnLvl1.setOnClickListener {
+            gameModel.setMode(GameModes.MODE_ARCADE)
+            gameModel.setGameSize(GameSize.SIZE_1)
+        }
+
+        btnLvl2.setOnClickListener {
+            gameModel.setMode(GameModes.MODE_ARCADE)
+            gameModel.setGameSize(GameSize.SIZE_2)
+        }
+
+        btnLvl3.setOnClickListener {
+            gameModel.setMode(GameModes.MODE_ARCADE)
+            gameModel.setGameSize(GameSize.SIZE_3)
         }
 
         btnClose.setOnClickListener{
