@@ -6,26 +6,20 @@ import androidx.lifecycle.ViewModel
 import ph.edu.benilde.matchingkitties.R
 import android.os.Handler
 import android.os.Looper
-import android.util.Log
 
 class GameViewModel: ViewModel() {
     private val _inGame = MutableLiveData<Boolean>(false)
     private val _isDone = MutableLiveData<Boolean>(false)
-    private val _gameStarted = MutableLiveData<Boolean>(false)
     private val _gameMode = MutableLiveData<GameModes>(GameModes.MODE_NONE)
     private val _gameSize = MutableLiveData<GameSize>(GameSize.SIZE_0)
-
     private val _gameImages = MutableLiveData<IntArray>()
     private val _gameRoundImages = MutableLiveData<IntArray>()
     private val _gameRoundImageStatus = MutableLiveData<BooleanArray>()
     private val _openedImages = MutableLiveData<Int>(0)
-
     private val _hasSelectedSlot1 = MutableLiveData<Int>(-1)
     private val _hasSelectedSlot2 = MutableLiveData<Int>(-1)
-
     private val _score = MutableLiveData<Int>(-1)
     private val _timeLeft = MutableLiveData<Int>(-1)
-
     private val imageArray = mutableListOf<Int>(
             R.drawable.kitty_01, R.drawable.kitty_02, R.drawable.kitty_03,
             R.drawable.kitty_04, R.drawable.kitty_05, R.drawable.kitty_06,
@@ -36,27 +30,21 @@ class GameViewModel: ViewModel() {
 
     val inGame: LiveData<Boolean> = _inGame
     val isDone: LiveData<Boolean> = _isDone
-    val gameStarted: LiveData<Boolean> = _gameStarted
-    val gameMode: LiveData<GameModes> = _gameMode
     val gameSize: LiveData<GameSize> = _gameSize
-
     val gameRoundImages: LiveData<IntArray> = _gameRoundImages
     val gameRoundImageStatus: LiveData<BooleanArray> = _gameRoundImageStatus
-
     val score: LiveData<Int> = _score
     val timeLeft: LiveData<Int> = _timeLeft
-
-    // Todo: TIMER FOR TIME LEFT
 
     init { }
 
     fun setGameMode(mode: GameModes) {
-        if(_inGame.value!! || _gameStarted.value!!) return
+        if(_inGame.value!!) return
         _gameMode.value = mode
     }
 
     fun setGameSize(size: GameSize) {
-        if(_inGame.value!! || _gameStarted.value!!) return
+        if(_inGame.value!!) return
         _gameSize.value = size
     }
 
@@ -67,8 +55,6 @@ class GameViewModel: ViewModel() {
     }
 
     fun startGame() {
-        Log.i("GAME2", gameSize.value.toString())
-
         if(_gameMode.value!! == GameModes.MODE_NONE) return
         if(_gameSize.value!! == GameSize.SIZE_0) return
         generateLevel()
@@ -82,7 +68,6 @@ class GameViewModel: ViewModel() {
     fun stopGame() {
         _isDone.value = false
         _inGame.value = false
-        _gameStarted.value = false
         _gameMode.value = GameModes.MODE_NONE
         _gameSize.value = GameSize.SIZE_0
 
@@ -152,7 +137,6 @@ class GameViewModel: ViewModel() {
 
             _isDone.value = true
             _inGame.value = false
-            _gameStarted.value = false
         }
     }
 
