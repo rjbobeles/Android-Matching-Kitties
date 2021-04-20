@@ -11,7 +11,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -53,22 +57,22 @@
                     android:id="@+id/imgButton1A"
                     android:layout_width="140dp"
                     android:layout_height="140dp"
-                    android:scaleType="fitStart"
-                    android:background="@drawable/kitty_00" />
+                    android:background="@drawable/kitty_00"
+                    android:scaleType="fitStart" />
 
                 <ImageButton
                     android:id="@+id/imgButton1B"
                     android:layout_width="140dp"
                     android:layout_height="140dp"
-                    android:scaleType="fitStart"
-                    android:background="@drawable/kitty_00" />
+                    android:background="@drawable/kitty_00"
+                    android:scaleType="fitStart" />
 
                 <ImageButton
                     android:id="@+id/imgButton1C"
                     android:layout_width="140dp"
                     android:layout_height="140dp"
-                    android:scaleType="fitStart"
-                    android:background="@drawable/kitty_00" />
+                    android:background="@drawable/kitty_00"
+                    android:scaleType="fitStart" />
             </LinearLayout>
 
             <LinearLayout
@@ -81,22 +85,22 @@
                     android:id="@+id/imgButton1D"
                     android:layout_width="140dp"
                     android:layout_height="140dp"
-                    android:scaleType="fitStart"
-                    android:background="@drawable/kitty_00" />
+                    android:background="@drawable/kitty_00"
+                    android:scaleType="fitStart" />
 
                 <ImageButton
                     android:id="@+id/imgButton1E"
                     android:layout_width="140dp"
                     android:layout_height="140dp"
-                    android:scaleType="fitStart"
-                    android:background="@drawable/kitty_00" />
+                    android:background="@drawable/kitty_00"
+                    android:scaleType="fitStart" />
 
                 <ImageButton
                     android:id="@+id/imgButton1F"
                     android:layout_width="140dp"
                     android:layout_height="140dp"
-                    android:scaleType="fitStart"
-                    android:background="@drawable/kitty_00" />
+                    android:background="@drawable/kitty_00"
+                    android:scaleType="fitStart" />
             </LinearLayout>
 
         </LinearLayout>

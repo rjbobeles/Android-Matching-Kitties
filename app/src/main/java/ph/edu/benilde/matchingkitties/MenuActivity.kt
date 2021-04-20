@@ -35,7 +35,7 @@ class MenuActivity: AppCompatActivity() {
         }
 
         btnMania.setOnClickListener {
-            val level = Random.nextInt(1, 3)
+            val level = Random.nextInt(1, 4)
             val levelClass = when(level) {
                 1 -> Level1Activity::class.java
                 2 -> Level2Activity::class.java
@@ -46,6 +46,8 @@ class MenuActivity: AppCompatActivity() {
             val intent = Intent(this, levelClass)
             intent.putExtra("GVM-mode", 2)
             intent.putExtra("GVM-size", level)
+            intent.putExtra("GVM-User-Time", 31000)
+            intent.putExtra("GVM-User-Score", 0)
             startActivityForResult(intent, 1)
         }
     }

@@ -75,6 +75,10 @@ class GameViewModel: ViewModel() {
         _inGame.value = true
     }
 
+    fun stopBoard() {
+        _isDone.value = false
+    }
+
     fun stopGame() {
         _isDone.value = false
         _inGame.value = false
@@ -98,6 +102,7 @@ class GameViewModel: ViewModel() {
         var gameRIS = _gameRoundImageStatus.value!!
 
         if(_hasSelectedSlot1.value != -1 && _hasSelectedSlot2.value != -1) return
+        if(gameRIS[box]) return
 
         if(_hasSelectedSlot1.value == -1) {
             _hasSelectedSlot1.value = box
