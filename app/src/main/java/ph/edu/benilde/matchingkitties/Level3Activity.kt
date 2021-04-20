@@ -1,10 +1,11 @@
 package ph.edu.benilde.matchingkitties
 
 import android.content.Intent
+import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
-import android.util.Log
+import android.view.View
 import android.view.View.GONE
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -31,8 +32,11 @@ class Level3Activity: AppCompatActivity(){
 
         )
     }
+
     private val txtCountdown by lazy { binding.txtCountDown }
+
     private lateinit var timeRemaining: String
+    private lateinit var timer:CountDownTimer
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,24 +67,21 @@ class Level3Activity: AppCompatActivity(){
         gameModel.setGameSize(gvmSizeUnit)
         gameModel.setUserData(userScore, userTimeLeft)
 
-        val timer = object: CountDownTimer(gameModel.timeLeft.value!!.toLong(),1000) {
+        timer = object: CountDownTimer(gameModel.timeLeft.value!!.toLong(),1000) {
             override fun onTick(millisUntilFinished: Long) {
                 val sec = millisUntilFinished / 1000
                 timeRemaining = sec.toInt().toString()
                 txtCountdown.text = timeRemaining
+                intent.putExtra("GVM-User-Time", millisUntilFinished.toInt())
             }
             override fun onFinish() {
                 maniaResults(gameModel)
             }
         }
 
-        if(gvmModeUnit != GameModes.MODE_MANIA) {
-            txtCountdown.visibility = GONE
-        } else {
-            timer.start()
-        }
-
+        if(gvmModeUnit != GameModes.MODE_MANIA) txtCountdown.visibility = View.GONE
         if(gameModel.inGame.value == false) gameModel.startGame()
+        if(gvmModeUnit == GameModes.MODE_MANIA && gameModel.inGame.value == true) timer.start()
 
         for(i in imgButtons.indices) { imgButtons[i].setOnClickListener { gameModel.checkOrSelect(i) } }
 
@@ -130,6 +131,12 @@ class Level3Activity: AppCompatActivity(){
         }
     }
 
+
+    override fun onDestroy() {
+        timer.cancel()
+        super.onDestroy()
+    }
+
     private fun refreshGrid() {
         val gameModel by viewModels<GameViewModel>()
         if (gameModel.gameRoundImages.value == null || gameModel.gameRoundImageStatus.value == null) return
@@ -140,6 +147,7 @@ class Level3Activity: AppCompatActivity(){
             if(gameRoundImageStatus[i]) imgButtons[i].setBackgroundResource(gameRoundImages[i])
             else imgButtons[i].setBackgroundResource(R.drawable.kitty_00)
         }
+
     }
 
     private fun maniaResults(gameModel: GameViewModel) {

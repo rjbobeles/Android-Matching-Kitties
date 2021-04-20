@@ -1,6 +1,7 @@
 package ph.edu.benilde.matchingkitties
 
 import android.content.Intent
+import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
@@ -31,7 +32,9 @@ class Level2Activity: AppCompatActivity(){
     }
 
     private val txtCountdown by lazy { binding.txtCountDown }
+
     private lateinit var timeRemaining: String
+    private lateinit var timer:CountDownTimer
 
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
@@ -62,24 +65,21 @@ class Level2Activity: AppCompatActivity(){
         gameModel.setGameSize(gvmSizeUnit)
         gameModel.setUserData(userScore, userTimeLeft)
 
-        val timer = object:CountDownTimer(gameModel.timeLeft.value!!.toLong(),1000) {
+        timer = object: CountDownTimer(gameModel.timeLeft.value!!.toLong(),1000) {
             override fun onTick(millisUntilFinished: Long) {
                 val sec = millisUntilFinished / 1000
                 timeRemaining = sec.toInt().toString()
                 txtCountdown.text = timeRemaining
+                intent.putExtra("GVM-User-Time", millisUntilFinished.toInt())
             }
             override fun onFinish() {
                 maniaResults(gameModel)
             }
         }
 
-        if(gvmModeUnit != GameModes.MODE_MANIA) {
-            txtCountdown.visibility = View.GONE
-        } else {
-           timer.start()
-        }
-
+        if(gvmModeUnit != GameModes.MODE_MANIA) txtCountdown.visibility = View.GONE
         if(gameModel.inGame.value == false) gameModel.startGame()
+        if(gvmModeUnit == GameModes.MODE_MANIA && gameModel.inGame.value == true) timer.start()
 
         for(i in imgButtons.indices) { imgButtons[i].setOnClickListener { gameModel.checkOrSelect(i) } }
 
@@ -87,7 +87,7 @@ class Level2Activity: AppCompatActivity(){
         gameModel.isDone.observe(this) {
             if(it == true) {
                 if (gvmModeUnit == GameModes.MODE_ARCADE) {
-                    val intent = Intent( this, ArcadeResultActivity::class.java)
+                    val intent = Intent(this, ArcadeResultActivity::class.java)
                     intent.putExtra("GVM-mode", gvmMode)
                     intent.putExtra("GVM-size", gvmSize)
                     startActivityForResult(intent, 1)
@@ -129,6 +129,12 @@ class Level2Activity: AppCompatActivity(){
         }
     }
 
+
+    override fun onDestroy() {
+        timer.cancel()
+        super.onDestroy()
+    }
+
     private fun refreshGrid() {
         val gameModel by viewModels<GameViewModel>()
         if (gameModel.gameRoundImages.value == null || gameModel.gameRoundImageStatus.value == null) return
@@ -139,6 +145,7 @@ class Level2Activity: AppCompatActivity(){
             if(gameRoundImageStatus[i]) imgButtons[i].setBackgroundResource(gameRoundImages[i])
             else imgButtons[i].setBackgroundResource(R.drawable.kitty_00)
         }
+
     }
 
     private fun maniaResults(gameModel: GameViewModel) {

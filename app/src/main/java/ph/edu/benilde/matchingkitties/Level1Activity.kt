@@ -5,7 +5,6 @@ import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
-import android.util.Log
 import android.view.View.GONE
 import android.widget.Toast
 import androidx.activity.viewModels
@@ -31,7 +30,6 @@ class Level1Activity: AppCompatActivity(){
     private val txtCountdown by lazy { binding.txtCountDown }
 
     private lateinit var timeRemaining: String
-
     private lateinit var timer:CountDownTimer
 
     override fun onCreate(savedInstanceState: Bundle?){
@@ -75,17 +73,9 @@ class Level1Activity: AppCompatActivity(){
             }
         }
 
-        if(gvmModeUnit != GameModes.MODE_MANIA) {
-            txtCountdown.visibility = GONE
-        } else {
-            if(gameModel.inGame.value == false) timer.start()
-        }
-
-        if(gameModel.inGame.value == false) {
-            gameModel.startGame()
-        } else {
-            if(gameModel.gameMode.value == GameModes.MODE_MANIA) timer.start()
-        }
+        if(gvmModeUnit != GameModes.MODE_MANIA) txtCountdown.visibility = GONE
+        if(gameModel.inGame.value == false) gameModel.startGame()
+        if(gvmModeUnit == GameModes.MODE_MANIA && gameModel.inGame.value == true) timer.start()
 
         for(i in imgButtons.indices) { imgButtons[i].setOnClickListener { gameModel.checkOrSelect(i) } }
 
@@ -135,6 +125,11 @@ class Level1Activity: AppCompatActivity(){
         }
     }
 
+    override fun onDestroy() {
+        timer.cancel()
+        super.onDestroy()
+    }
+
     private fun refreshGrid() {
         val gameModel by viewModels<GameViewModel>()
         if (gameModel.gameRoundImages.value == null || gameModel.gameRoundImageStatus.value == null) return
@@ -154,11 +149,5 @@ class Level1Activity: AppCompatActivity(){
         gameModel.stopGame()
         startActivityForResult(intent, 1)
         finish()
-    }
-
-    override fun onConfigurationChanged(newConfig: Configuration){
-        super.onConfigurationChanged(newConfig)
-        timer.cancel()
-        Log.i("CONFIG", "Changed orientation")
     }
 }
