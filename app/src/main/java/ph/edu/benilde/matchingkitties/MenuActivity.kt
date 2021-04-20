@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import ph.edu.benilde.matchingkitties.databinding.ActivityMenuBinding
 import android.os.Bundle
-import android.util.Log
 import ph.edu.benilde.matchingkitties.viewModels.GameModes
 import kotlin.random.Random
 
