@@ -2,6 +2,6 @@
     <string name="app_name">Matching Kitties</string>
     <string name="app_authors">Unikitty Studios</string>
 
-    <string name="casual">Casual</string>
+    <string name="arcade">Arcade</string>
     <string name="mania">Mania</string>
 </resources>

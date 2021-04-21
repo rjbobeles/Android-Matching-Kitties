@@ -11,7 +11,7 @@ class MenuActivity: AppCompatActivity() {
     private lateinit var binding: ActivityMenuBinding
 
     private val btnAuthors by lazy { binding.btnAuthors }
-    private val btnCasual by lazy { binding.btnCasual }
+    private val btnArcade by lazy { binding.btnArcade }
     private val btnMania by lazy { binding.btnMania }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,7 +28,7 @@ class MenuActivity: AppCompatActivity() {
             startActivity(intent)
         }
 
-        btnCasual.setOnClickListener {
+        btnArcade.setOnClickListener {
             val intent = Intent(this, LevelSelectionActivity::class.java)
             startActivity(intent)
         }

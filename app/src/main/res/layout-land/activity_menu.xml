@@ -42,12 +42,12 @@
             android:text="Matching Kitties" />
 
         <Button
-            android:id="@+id/btn_casual"
+            android:id="@+id/btn_arcade"
             style="@style/primary_button"
             android:layout_width="match_parent"
             android:layout_marginBottom="8dp"
             android:background="@drawable/button_gradient_sky"
-            android:text="Casual"
+            android:text="@string/arcade"
             app:backgroundTintMode="add" />
 
         <Button
