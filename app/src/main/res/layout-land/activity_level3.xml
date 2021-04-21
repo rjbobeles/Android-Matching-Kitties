@@ -28,7 +28,7 @@
 
             <TextView
                 android:id="@+id/Title"
-                style="@style/heading_3"
+                style="@style/heading_4"
                 android:layout_width="wrap_content"
                 android:gravity="start"
                 android:text="Match 'em \nkitties!"
