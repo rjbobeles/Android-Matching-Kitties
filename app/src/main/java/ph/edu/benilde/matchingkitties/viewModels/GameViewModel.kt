@@ -61,10 +61,6 @@ class GameViewModel: ViewModel() {
         _inGame.value = true
     }
 
-    fun stopBoard() {
-        _isDone.value = false
-    }
-
     fun stopGame() {
         _isDone.value = false
         _inGame.value = false
