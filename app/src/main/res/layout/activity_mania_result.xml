@@ -4,11 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ManiaResultActivity">
+    android:background="@drawable/bg_gradient_twilight"
+    tools:context=".ArcadeResultActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginEnd="48dp"
+        android:layout_marginRight="48dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -16,9 +21,40 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/txtScore"
+            android:id="@+id/txText"
+            style="@style/heading_6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:layout_marginBottom="0sp"
+            android:text="Boards finished:" />
+
+        <TextView
+            android:id="@+id/txtScore"
+            style="@style/heading_1"
+            android:textSize="120sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="0sp"
+            android:padding="0dp"
+            android:text="0" />
+
+        <Button
+            android:id="@+id/btnPlayAgain"
+            style="@style/primary_button"
+            android:layout_width="310dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/button_gradient_peach"
+            android:text="Play Again" />
+
+        <Button
+            android:id="@+id/btnMenu"
+            style="@style/primary_button"
+            android:layout_width="310dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/button_gradient_sky"
+            android:text="Back to Menu" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

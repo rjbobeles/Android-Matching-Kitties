@@ -60,13 +60,5 @@
             android:text="Mania"
             app:backgroundTint="@null" />
 
-        <ImageButton
-            android:id="@+id/btn_leaderboards"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_gravity="center"
-            android:background="@null"
-            android:scaleType="fitCenter"
-            app:srcCompat="@drawable/leaderboards" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -60,4 +60,16 @@
         <item name="android:textSize">48sp</item>
         <item name="android:lineHeight">42sp</item>
     </style>
+    <style name="heading_6">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/baloo_medium</item>
+        <item name="android:shadowColor">#57821764</item>
+        <item name="android:shadowDy">12</item>
+        <item name="android:shadowRadius">8</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">#fff</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:lineHeight">18sp</item>
+    </style>
 </resources>

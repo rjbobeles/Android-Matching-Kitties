@@ -31,8 +31,9 @@
         <Button
             android:id="@+id/btnPlayAgain"
             style="@style/primary_button"
-            android:layout_width="match_parent"
+            android:layout_width="310dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:layout_marginBottom="12dp"
             android:background="@drawable/button_gradient_peach"
             android:text="Play Again" />
@@ -40,8 +41,9 @@
         <Button
             android:id="@+id/btnMenu"
             style="@style/primary_button"
-            android:layout_width="match_parent"
+            android:layout_width="310dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:background="@drawable/button_gradient_sky"
             android:text="Back to Menu" />
     </LinearLayout>

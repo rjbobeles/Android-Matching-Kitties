@@ -9,7 +9,6 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="42dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
@@ -18,10 +17,10 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="140dp"
-            android:layout_height="140dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_gravity="center"
-            android:layout_marginBottom="18dp"
+            android:layout_marginBottom="0dp"
             android:scaleType="fitStart"
             app:srcCompat="@drawable/unikitty" />
 
@@ -43,8 +42,8 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/baloo"
             android:text="Gabrielle Gamoras"
-            android:textSize="20sp"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/textView6"
@@ -52,8 +51,8 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/baloo"
             android:text="Ryan Obeles"
-            android:textSize="20sp"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/textView7"
@@ -61,8 +60,8 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/baloo"
             android:text="Francheska Teng"
-            android:textSize="20sp"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:textSize="20sp" />
 
     </LinearLayout>
 
@@ -70,7 +69,7 @@
         android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="36dp"
+        android:layout_marginBottom="16dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -80,9 +79,9 @@
             android:id="@+id/textView8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="0dp"
             android:fontFamily="@font/baloo_bold"
             android:text="MOBIAND OTI001"
-            android:layout_marginBottom="0dp"
             android:textColor="#FF5B7B"
             android:textSize="24sp" />
 
@@ -92,8 +91,8 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/baloo"
             android:text="2T 20-21"
-            android:textSize="20sp"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:textSize="20sp" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
