@@ -44,7 +44,8 @@
             android:fontFamily="@font/baloo"
             android:text="Gabrielle Gamoras"
             android:textSize="20sp"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:gravity="center_horizontal" />
 
         <TextView
             android:id="@+id/textView6"
@@ -53,16 +54,18 @@
             android:fontFamily="@font/baloo"
             android:text="Ryan Obeles"
             android:textSize="20sp"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:gravity="center_horizontal" />
 
         <TextView
             android:id="@+id/textView7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/baloo"
-            android:text="Francheska Teng"
+            android:text="Franchesca Teng"
             android:textSize="20sp"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:gravity="center_horizontal" />
 
     </LinearLayout>
 
